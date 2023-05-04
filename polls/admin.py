@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Cart, Customer, Product
+from . models import Cart, Customer, OrderPlaced, Payment, Product
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
@@ -12,3 +12,11 @@ class CustomerModelAdmin(admin.ModelAdmin):
 @admin.register(Cart)
 class CartModelAdmin(admin.ModelAdmin): 
     list_display = ['id','user','product','quantity']
+
+@admin.register(Payment)
+class PaymentModelAdmin(admin.ModelAdmin):
+    list_display = ['id','user','amount','razorpy_order_id','razorpy_payment_status','razorpy_payment_id','paid']
+
+@admin.register(OrderPlaced)
+class OrderPlacedModelAdmin(admin.ModelAdmin):
+    list_display = ['id','user','customer','product','quantity','ordered_data','status','payment']
