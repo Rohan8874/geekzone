@@ -1,7 +1,7 @@
 from django.contrib import admin
 from . models import Cart, Customer, OrderPlaced, Payment, Product
 
-@admin.register(Product)
+@admin.register(Product) 
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['id','title','discounted_price','category','product_image']
 
